@@ -1,0 +1,125 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 100% 99%;
+    --foreground: 258 50% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 258 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 258 50% 10%;
+
+    --primary: 258 70% 75%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 258 30% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 258 10% 95%;
+    --muted-foreground: 258 20% 40%;
+
+    --accent: 258 30% 90%;
+    --accent-foreground: 258 50% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 258 20% 85%;
+    --input: 258 20% 85%;
+    --ring: 258 70% 75%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 258 50% 10%;
+    --foreground: 0 0% 95%;
+
+    --card: 258 45% 15%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 258 45% 15%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 258 70% 75%;
+    --primary-foreground: 258 50% 10%;
+
+    --secondary: 258 30% 50%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 258 20% 20%;
+    --muted-foreground: 258 10% 70%;
+
+    --accent: 258 30% 30%;
+    --accent-foreground: 0 0% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 258 30% 30%;
+    --input: 258 30% 30%;
+    --ring: 258 70% 75%;
+    
+    --sidebar-background: 258 45% 15%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 258 70% 75%;
+    --sidebar-primary-foreground: 258 50% 10%;
+    --sidebar-accent: 258 30% 30%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 258 30% 30%;
+    --sidebar-ring: 258 70% 75%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.quiz-container {
+  @apply rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl;
+}
+
+.quiz-card {
+  @apply p-6 bg-gradient-to-br from-white to-quiz-light dark:from-quiz-dark dark:to-quiz-tertiary;
+}
+
+.answer-option {
+  @apply px-4 py-3 rounded-lg border-2 transition-all duration-200 cursor-pointer mb-3 hover:border-quiz-primary;
+}
+
+.answer-option.selected {
+  @apply border-quiz-primary bg-quiz-light dark:bg-opacity-20;
+}
+
+.answer-option.correct {
+  @apply border-quiz-success bg-green-100 dark:bg-green-900 dark:bg-opacity-20;
+}
+
+.answer-option.incorrect {
+  @apply border-quiz-error bg-red-100 dark:bg-red-900 dark:bg-opacity-20;
+}
+
+.confetti {
+  @apply pointer-events-none fixed inset-0 z-50 overflow-hidden;
+}
